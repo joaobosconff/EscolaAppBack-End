@@ -19,8 +19,9 @@ public class ProfessorService {
 		return profRep.save(professor);
 	}
 	
-	public void deleteProfessor(Long id) {
+	public String deleteProfessor(Long id) {
 		profRep.deleteById(id);
+		return "deletado";
 	}
 	
 	public List<Professor> getAllProfessor(){

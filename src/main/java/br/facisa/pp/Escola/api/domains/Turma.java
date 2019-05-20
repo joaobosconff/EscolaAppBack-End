@@ -1,6 +1,7 @@
 package br.facisa.pp.Escola.api.domains;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,12 +18,12 @@ public class Turma {
 	private Long id;
 	
 	@OneToMany
-	private ArrayList<Aluno> alunos;
+	private List<Aluno> alunos;
 	
 	@OneToOne
 	private Professor professor;
 
-	public ArrayList<Aluno> getAlunos() {
+	public List<Aluno> getAlunos() {
 		return alunos;
 	}
 	
@@ -30,7 +31,7 @@ public class Turma {
 		return id;
 	}
 
-	public void setAlunos(ArrayList<Aluno> alunos) {
+	public void setAlunos(List<Aluno> alunos) {
 		this.alunos = alunos;
 	}
 
@@ -41,6 +42,13 @@ public class Turma {
 	public void setProfessor(Professor professor) {
 		this.professor = professor;
 	}
+
+	public Turma(List<Aluno> alunos, Professor professor) {
+		this.alunos = alunos;
+		this.professor = professor;
+	}
+	
+	
 	
 	
 

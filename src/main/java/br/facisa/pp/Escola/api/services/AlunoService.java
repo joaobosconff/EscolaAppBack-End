@@ -18,8 +18,9 @@ public class AlunoService {
 	public Aluno createAluno(Aluno aluno) {
 		return alunoRep.save(aluno);
 	}
-	public void deleteAluno(Aluno aluno) {
-		alunoRep.delete(aluno);
+	public String deleteAluno(Long id) {
+		alunoRep.deleteById(id);
+		return "deletado";
 	}
 	public Aluno updateAluno(Long id,Aluno aluno) {
 		Aluno alunoTemp = this.getAlunoById(id);

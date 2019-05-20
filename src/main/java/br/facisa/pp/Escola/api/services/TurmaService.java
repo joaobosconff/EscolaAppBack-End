@@ -20,8 +20,9 @@ public class TurmaService {
 		return turmaRep.save(turma);
 	}
 	
-	public void deleteTurma(Long id) {
+	public String deleteTurma(Long id) {
 		turmaRep.deleteById(id);
+		return "deletado";
 	}
 	
 	public List<Turma> getAllTurmas(){

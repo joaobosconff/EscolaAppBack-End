@@ -13,8 +13,11 @@ public class Aluno {
 	
 	private String nome;
 	private Integer idade;
+	
+	public Aluno() {
+	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
