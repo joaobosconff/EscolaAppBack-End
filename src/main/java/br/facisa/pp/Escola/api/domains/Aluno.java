@@ -18,10 +18,6 @@ public class Aluno {
 		return id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	public String getNome() {
 		return nome;
 	}
@@ -38,9 +34,7 @@ public class Aluno {
 		this.idade = idade;
 	}
 
-	public Aluno(long id, String nome, Integer idade) {
-		super();
-		this.id = id;
+	public Aluno(String nome, Integer idade) {
 		this.nome = nome;
 		this.idade = idade;
 	}
