@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.facisa.pp.Escola.api.domains.Aluno;
+import br.facisa.pp.Escola.api.domains.dtos.AlunoCreateDto;
+import br.facisa.pp.Escola.api.domains.dtos.NotaDto;
 import br.facisa.pp.Escola.api.services.AlunoService;
 
 @RestController
@@ -37,7 +39,7 @@ public class AlunoController {
 	}
 	
 	@PostMapping()
-	public ResponseEntity<Aluno> createAluno(@RequestBody Aluno aluno){
+	public ResponseEntity<Aluno> createAluno(@RequestBody AlunoCreateDto aluno){
 		return new ResponseEntity<Aluno>(alunoService.createAluno(aluno),HttpStatus.CREATED);
 	}
 	
@@ -49,6 +51,11 @@ public class AlunoController {
 	@DeleteMapping("{id}")
 	public ResponseEntity<String> updateAluno(@PathVariable Long id){
 		return new ResponseEntity<String>(alunoService.deleteAluno(id),HttpStatus.OK);
+	}
+	
+	@PutMapping("{idAluno}/disciplina/{idDisciplina}")
+	public ResponseEntity<Aluno> atualizarNotas(@PathVariable Long idAluno,@RequestBody NotaDto nota,@PathVariable Long idDisciplina){
+		return new ResponseEntity<Aluno>(alunoService.atualizarNota(idAluno, idDisciplina, nota),HttpStatus.OK);
 	}
 
 }
