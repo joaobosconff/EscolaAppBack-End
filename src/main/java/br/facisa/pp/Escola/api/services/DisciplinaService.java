@@ -41,6 +41,10 @@ public class DisciplinaService {
 	public List<Disciplina> getAllDisciplina(){
 		return disRep.findAll();
 	}
+	
+	public List<Disciplina> getDisciplinaBySerie(int serie){
+		return disRep.findBySerie(serie);
+	}
 
 
 }

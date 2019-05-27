@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.facisa.pp.Escola.api.domains.Disciplina;
@@ -23,7 +24,6 @@ public class DisciplinaController {
 
 	//buscar disciplina por serie
 	
-	//buscar disciplina por nome
 	
 	@Autowired
 	private DisciplinaService disService;
@@ -51,5 +51,10 @@ public class DisciplinaController {
 	@DeleteMapping("{id}")
 	public ResponseEntity<String> deleteDisciplina(@PathVariable Long id){
 		return new ResponseEntity<String>(disService.deleteDisciplina(id),HttpStatus.OK);
+	}
+	
+	@GetMapping("/searchBySerie")
+	public ResponseEntity<List<Disciplina>> getDisciplinaBySerie(@RequestParam int serie){
+		return new ResponseEntity<List<Disciplina>>(disService.getDisciplinaBySerie(serie),HttpStatus.OK);
 	}
 }
